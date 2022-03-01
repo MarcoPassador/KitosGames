@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+*{
+  font-family:'Yantramanav', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.headers{
+  display: flex;
+  flex-direction: column;
 }
+
+.headers h1{
+  font-family: 'Righteous', cursive;
+  font-size: 4vw;
+}
+
+.nave{
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  
+}
+
+.nave ul{
+  list-style-type: none;
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.nave ul li{
+  margin: 0 5px;
+}
+
+
+.nave a{
+  text-decoration: none;
+  margin: 15px;
+}
+
+
+/* Animaciones */
+
+
+.navlink a{
+	color: white;
+}
+
+.nave span{
+  display: inline-block;
+  transition: transform 0.2s ease, color 0.2s ease;
+
+}
+
+.navlink:hover span{
+	transform: translateX(4px);
+}
+
+.navlink:hover a{
+  color: rgb(231, 36, 44)
+}
+
+/* .navlink a:hover{
+  color: blue;
+} */
