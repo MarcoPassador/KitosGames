@@ -1,4 +1,5 @@
 import React from "react";
+import CartWidget from "./CartWidget.js"
 
 import logo from "./img/logo.png"
 
@@ -6,13 +7,10 @@ const NavBar = () =>{
     return (
         <>
         <header className='headers'>
-        <div>
-          <img href={logo} alt=""/>
+        <div className="banner">
+          <img src={logo} alt=""/>
           <h1>KITOS GAMES</h1>
-          <div>
-            {/* icono1 */}
-            {/* icono2 */}
-          </div>
+          <CartWidget/>
         </div>
         <nav className='nave'>
           <ul>

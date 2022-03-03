@@ -16,6 +16,19 @@
   font-size: 4vw;
 }
 
+.banner{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.banner img{
+  height: 80px;
+  width: auto;
+}
+
 .nave{
   color: white;
   background-color: black;
@@ -41,6 +54,31 @@
 .nave a{
   text-decoration: none;
   margin: 15px;
+}
+
+.cartnum{
+  font-size: 30px;
+}
+
+
+.listContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 5px;
+  background-color: gray;
+  border-radius: 10px;
+  height: 500px;
+}
+
+.itemDiv{
+  margin: 10px;
+}
+
+.itemDiv img{
+  height: 100px;
+  width: auto;
 }
 
 
