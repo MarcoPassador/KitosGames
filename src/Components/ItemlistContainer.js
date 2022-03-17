@@ -1,9 +1,5 @@
 import React, { useEffect, useState } from "react"
 import Item from "./Item"
-import img1 from "./img/juego1.jpg"
-import img2 from "./img/juego2.jpg"
-import img3 from "./img/juego3.png"
-import img4 from "./img/juego4.png"
 
 
 
@@ -17,26 +13,31 @@ function ItemlistContainer  () {
             {
                 name:"God of War",
                 price: 5000,
-                img: {img1},
-                stock:7
+                img: "./img/juego1.jpg",
+                stock:7,
+                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
             },
             {
                 name:"Skyrim",
                 price: 3800,
-                img: {img3},
-                stock:10
+                img: "./img/juego3.png",
+                stock:10,
+                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
             },
             {
                 name:"Elden Ring",
                 price: 7000,
-                img: {img2},
-                stock:15
+                img: "./img/juego2.jpg",
+                stock:15,
+                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
             },
             {
                 name:"Horizon Forbbiden West",
                 price: 6000,
-                img: {img4},
-                stock: 11
+                img: "./img/juego4.png",
+                stock: 11,
+                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
+                
             }
         ]
         
@@ -53,14 +54,14 @@ function ItemlistContainer  () {
 
     useEffect(()=>{
         Cargar().then((lista)=>setItem(lista)).catch((error)=>console.log(error))
-    })
+    },[])
 
 
     
     return(
         <div className="listContainer">
             {
-                itemlist.map((item)=><Item name={item.name} price={item.price} img={item.img} stocks={item.stock} />)
+                itemlist.map((item)=><Item name={item.name} price={item.price} img={item.img} stocks={item.stock} detail={item.detail} />)
             }
         </div>
     )

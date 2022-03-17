@@ -8,7 +8,7 @@ const ItemCounter = (props) => {
 
 
   return (
-      <div>
+      <div className='counter'>
         <div className='counterDiv'>
             <button className='counterBtn' onClick={()=>count > 0 ? setCount(count-1) : count}>-</button>
             <label className='counterNum'>{count}</label>

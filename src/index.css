@@ -94,9 +94,9 @@
   align-items: flex-start;
   border-radius: 5px;
   margin: 10px;
-  height: 380px;
+  height: 400px;
   padding: 5px;
-  box-shadow: 2px 2px 7px 7px rgba(0, 0, 0, 0.2);box-shadow: 0, 7px;
+  box-shadow: 2px 2px 7px 7px rgba(0, 0, 0, 0.2);
 }
 
 .itemDiv img{
@@ -142,6 +142,70 @@
   border-radius: 5px;
   background-color: unset;
 
+}
+
+.itemDetails{
+  color: rgb(231, 36, 44);
+  font-weight: 300;
+  font-style: italic;
+  cursor: pointer;
+  font-size: small;
+  margin-left: 75px;
+}
+
+.itemDetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.detailPage{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 3%;
+  background-color: #eee;
+  margin: 5%;
+  border-radius: 5px;
+  width: 700px;
+  box-shadow: 2px 2px 7px 7px rgba(0, 0, 0, 0.2)
+
+}
+
+.detailCont{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 15px;
+  width: 300px;
+}
+
+.detailCont p{
+  text-align: start;
+}
+
+.detailCont h4{
+  font-family: 'Poppins', sans-serif;
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.detailPage img{
+  width: 300px;
+  height: auto;
+  margin: 30px;
+}
+
+.counterDetail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 40px;
 }
 
 
