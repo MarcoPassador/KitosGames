@@ -78,7 +78,7 @@
 .listContainer{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   margin: 5px;
   border-radius: 10px;
@@ -94,7 +94,7 @@
   align-items: flex-start;
   border-radius: 5px;
   margin: 10px;
-  height: 400px;
+  height: 420px;
   padding: 5px;
   box-shadow: 2px 2px 7px 7px rgba(0, 0, 0, 0.2);
 }
@@ -160,6 +160,21 @@
   align-items: center;
 }
 
+.detailLink{
+  margin-left: 71px;
+  margin-top: 10px;
+  text-decoration: none;
+  color: rgb(231, 36, 44);
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.containerDetail{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .detailPage{
   display: flex;

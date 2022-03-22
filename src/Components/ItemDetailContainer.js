@@ -1,21 +1,25 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
+import { listgames } from './stock'
 
-const ItemDetailContainer = ({name, price, img, detail}) => {
+const ItemDetailContainer = () => {
 
-    const detailsReady={price, img, name, detail}
+    
 
-    const [itemdetails, setDetails] = useState ([])
+    const [itemdet, setList] = useState ([])
 
-    function GetDetails (){
+    const {gameId} = useParams()
+
+    function GetList (){
         
         return new Promise ((resolve, reject)=>{
             setTimeout(()=>{
-                if(detailsReady.length === 0){
+                if(listgames.length === 0){
                     reject("Error, no se pudieron traer los datos")
                 } else{
-                    resolve(detailsReady)
+                    resolve(listgames)
                 }
 
             }, 2000)
@@ -25,13 +29,17 @@ const ItemDetailContainer = ({name, price, img, detail}) => {
     }
 
     useEffect(()=>{
-        GetDetails().then((res)=>setDetails(res)).catch((error)=>console.log(error))
+        GetList().then((res)=>{
+            setList(res.find((item)=> item.id === Number(gameId)))
+        })
+        .catch((error)=>console.log(error))
     },[])
 
     return (
-      <>
-      <ItemDetail item={itemdetails}/>
-      </>
+      <div className='containerDetail'>
+        <ItemDetail item={itemdet}/>
+      </div>
+      
   )
 }
 

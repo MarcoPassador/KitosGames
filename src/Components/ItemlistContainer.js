@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react"
+import { listgames } from "./stock"
 import Item from "./Item"
+import banner from "./img/banner.jpg"
+import { useParams } from "react-router-dom"
 
 
 
@@ -7,39 +10,13 @@ function ItemlistContainer  () {
 
     const [itemlist, setItem] = useState ([])
 
+    const {gameCat} = useParams()
+
+    console.log(gameCat)
+
     function Cargar(){
 
-        let listgames = [
-            {
-                name:"God of War",
-                price: 5000,
-                img: "./img/juego1.jpg",
-                stock:7,
-                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
-            },
-            {
-                name:"Skyrim",
-                price: 3800,
-                img: "./img/juego3.png",
-                stock:10,
-                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
-            },
-            {
-                name:"Elden Ring",
-                price: 7000,
-                img: "./img/juego2.jpg",
-                stock:15,
-                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
-            },
-            {
-                name:"Horizon Forbbiden West",
-                price: 6000,
-                img: "./img/juego4.png",
-                stock: 11,
-                detail:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris nec justo odio. Fusce ultricies ipsum et purus finibus porttitor. Integer gravida sagittis dui sed blandit. Etiam ultrices ligula sed nisl vehicula commodo. Integer ac sapien mi. Pellentesque erat purus, semper id risus aliquam, commodo semper enim. In viverra scelerisque tincidunt. Sed et accumsan enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ut faucibus turpis."
-                
-            }
-        ]
+       
         
         return new Promise ((resolve, reject) =>{
             setTimeout(()=>{
@@ -48,20 +25,28 @@ function ItemlistContainer  () {
                 }else{
                     resolve(listgames)
                 }
-            },5000)
+            },2000)
         })
     }
 
     useEffect(()=>{
-        Cargar().then((lista)=>setItem(lista)).catch((error)=>console.log(error))
-    },[])
+        Cargar().then((lista)=>{
+            if(!gameCat){
+                setItem(lista)
+            }else{
+                setItem(lista.filter((games)=> games.category === gameCat))
+            }
+            })
+            .catch((error)=>console.log(error))
+    },[gameCat])
 
 
     
     return(
         <div className="listContainer">
+            <img className='bannerimg' src={banner} alt="banner"/>
             {
-                itemlist.map((item)=><Item name={item.name} price={item.price} img={item.img} stocks={item.stock} detail={item.detail} />)
+                itemlist.map((item)=><Item name={item.name} price={item.price} img={item.img} stocks={item.stock} detail={item.detail} id={item.id} />)
             }
         </div>
     )
