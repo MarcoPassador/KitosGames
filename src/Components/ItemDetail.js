@@ -1,8 +1,21 @@
 import React from 'react'
 import ItemCounter from './ItemCounter'
+import { useState } from 'react';
 
-const ItemDetail = ({item}) => {
-  console.log(item.img)
+const ItemDetail = ({name, img, detail, stock, prices}) => {
+  
+
+  const [count, setCount] = useState(1);
+
+  const agregar = () =>{
+    const itemCart = {
+      name,
+      img,
+      prices,
+      count
+    }
+    console.log(itemCart)
+  }
     
 
 
@@ -10,13 +23,13 @@ const ItemDetail = ({item}) => {
   return (
     <div className='detailPage'>
       <div className='itemDetail'>
-        <img src={item.img} alt="portada"/>
+        <img src={img} alt="portada"/>
         <div className='detailCont'>
-          <h2>{item.name}</h2>
-          <h4 className='detailPrice'>$ {item.price}</h4>
-          <p>{item.detail}</p>
+          <h2>{name}</h2>
+          <h4 className='detailPrice'>$ {prices}</h4>
+          <p>{detail}</p>
           <div className='counterDetail'>
-            <ItemCounter stock={item.stock}/>
+            <ItemCounter max={stock} count={count} setCount={setCount} agregar={agregar}/>
           </div>
         </div>
       </div>

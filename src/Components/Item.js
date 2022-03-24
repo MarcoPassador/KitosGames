@@ -11,7 +11,7 @@ function Item ({name, price, img, stocks, detail, id}) {
             <img src={img} alt="portada"/>
             <h3>{name}</h3>
             <p>$ {price}</p>
-            <ItemCounter stock={stocks}/>
+            <ItemCounter max={stocks} />
             <Link  className='detailLink' to={`/detalle/${id}`}><span>Ver más</span></Link>
             
     </div>

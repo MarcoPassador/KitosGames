@@ -1,21 +1,31 @@
 import React, {useState} from 'react'
+import { Link } from 'react-router-dom'
 
 
 
-const ItemCounter = (props) => {
+const ItemCounter = ({max, count=1, setCount, agregar}) => {
 
-    const [count, setCount] = useState(1);
+
+  const restar = () =>{
+    count > 1 && setCount(count-1)
+  }
+
+  const sumar = () =>{
+    count < max && setCount(count+1)
+  }
+
+    
 
 
   return (
       <div className='counter'>
         <div className='counterDiv'>
-            <button className='counterBtn' onClick={()=>count > 0 ? setCount(count-1) : count}>-</button>
+            <button className='counterBtn' onClick={restar}>-</button>
             <label className='counterNum'>{count}</label>
-            <button className='counterBtn' onClick={()=>count < props.stock ? setCount(count+1) : count}>+</button>
+            <button className='counterBtn' onClick={sumar}>+</button>
         </div>
-        <i>Stock:{props.stock}</i>
-        <button className='counterCart'>Agregar al carrito</button>
+        <i>Stock:{max}</i>
+        <Link to="/cart"><button className='counterCart' onClick={agregar}>Agregar al carrito</button></Link>
     </div>
   )
 }
