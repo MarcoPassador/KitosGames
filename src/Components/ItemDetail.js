@@ -1,20 +1,30 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ItemCounter from './ItemCounter'
 import { useState } from 'react';
+import { CartContext } from './CartContext';
+import { Link } from 'react-router-dom';
 
-const ItemDetail = ({name, img, detail, stock, prices}) => {
+const ItemDetail = ({name, img, detail, stock, prices, id}) => {
   
 
   const [count, setCount] = useState(1);
 
+  const {agregarCarrito, inCart} = useContext(CartContext)
+
   const agregar = () =>{
-    const itemCart = {
-      name,
-      img,
-      prices,
-      count
+    if (count === 0) return
+
+    if (!inCart(id)){
+      const itemCart = {
+        name,
+        id,
+        img,
+        prices,
+        count}
+      
+      agregarCarrito(itemCart)
     }
-    console.log(itemCart)
+
   }
     
 
@@ -28,9 +38,20 @@ const ItemDetail = ({name, img, detail, stock, prices}) => {
           <h2>{name}</h2>
           <h4 className='detailPrice'>$ {prices}</h4>
           <p>{detail}</p>
-          <div className='counterDetail'>
-            <ItemCounter max={stock} count={count} setCount={setCount} agregar={agregar}/>
-          </div>
+          {
+            inCart(id)?
+              <>
+                <Link className='comprado' to="/cart"><button className='counterCart'>Ver en el carrito</button></Link>
+              
+              </>
+              :
+              <>
+                <div className='counterDetail'>
+                  <ItemCounter max={stock} count={count} setCount={setCount} agregar={agregar}/>
+                </div>
+              </>
+          }
+
         </div>
       </div>
     </div>

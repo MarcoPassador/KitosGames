@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget.js"
 
@@ -6,6 +6,9 @@ import CartWidget from "./CartWidget.js"
 import logo from "./img/logo.png"
 
 const NavBar = () =>{
+
+
+
     return (
         <>
           <header className='headers'>

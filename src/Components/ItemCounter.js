@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 
 
 
@@ -24,7 +23,7 @@ const ItemCounter = ({max, count=1, setCount, agregar}) => {
             <button className='counterBtn' onClick={sumar}>+</button>
         </div>
         <i>Stock:{max}</i>
-        <Link to="/cart"><button className='counterCart' onClick={agregar}>Agregar al carrito</button></Link>
+        <button className='counterCart' onClick={agregar}>Agregar al carrito</button>
     </div>
   )
 }

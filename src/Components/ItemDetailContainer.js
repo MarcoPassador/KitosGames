@@ -37,7 +37,7 @@ const ItemDetailContainer = () => {
 
     return (
       <div className='containerDetail'>
-        <ItemDetail name ={itemdet.name} price={itemdet.price} img={itemdet.img} prices={itemdet.price} detail={itemdet.detail} stock = {itemdet.stock}/>
+        <ItemDetail name ={itemdet.name} price={itemdet.price} img={itemdet.img} prices={itemdet.price} detail={itemdet.detail} stock = {itemdet.stock} id ={itemdet.id}/>
       </div>
       
   )

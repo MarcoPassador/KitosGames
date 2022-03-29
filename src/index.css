@@ -94,7 +94,7 @@
   align-items: flex-start;
   border-radius: 5px;
   margin: 10px;
-  height: 420px;
+  height: 327px;
   padding: 5px;
   box-shadow: 2px 2px 7px 7px rgba(0, 0, 0, 0.2);
 }
@@ -223,6 +223,12 @@
   margin-left: 40px;
 }
 
+.comprado{
+  color: rgb(231, 36, 44);
+  display: flex;
+  margin:50px;
+  text-decoration: none;
+}
 
 
 footer{

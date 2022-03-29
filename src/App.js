@@ -9,29 +9,46 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { CartContext } from './Components/CartContext';
+import { useState } from 'react';
 
 function App() {
+
+  // CartContext
+
+  const [cart, setCart] = useState([])
+
+  const agregarCarrito = (item) => {
+    setCart( [...cart, item] )
+  }
+
+  const inCart = (id) =>{
+    return cart.some((prod) => prod.id === id)
+  }  
+
   
   return (
-    <BrowserRouter>
-      <div className="App">
-        <NavBar/>
-        <Routes>
-          <Route path='/' element={<ItemlistContainer/>}/>
-          <Route path='/juegos/:gameCat' element={<ItemlistContainer/>}/>
-          <Route path='detalle/:gameId' element={<ItemDetailContainer/>}/>
+    <CartContext.Provider value= {{cart,agregarCarrito, inCart}}>
+      <BrowserRouter>
+        <div className="App">
+          <NavBar/>
+          <Routes>
+            <Route path='/' element={<ItemlistContainer/>}/>
+            <Route path='/juegos/:gameCat' element={<ItemlistContainer/>}/>
+            <Route path='detalle/:gameId' element={<ItemDetailContainer/>}/>
 
-          <Route path='*' element={<Navigate to="/"/>}/>
-        </Routes>
-      
+            <Route path='*' element={<Navigate to="/"/>}/>
+          </Routes>
         
-        <footer>
           
-        </footer>
-        
+          <footer>
 
-      </div>
-    </BrowserRouter>
+          </footer>
+          
+
+        </div>
+      </BrowserRouter>
+    </CartContext.Provider>
   );
 }
 
