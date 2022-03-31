@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import ItemCounter from './ItemCounter'
 import { useState } from 'react';
-import { CartContext } from './CartContext';
+import { CartContext } from '../Context/CartContext';
 import { Link } from 'react-router-dom';
 
 const ItemDetail = ({name, img, detail, stock, prices, id}) => {
@@ -20,7 +20,10 @@ const ItemDetail = ({name, img, detail, stock, prices, id}) => {
         id,
         img,
         prices,
-        count}
+        count,
+        subtot: prices * count,
+      
+      }
       
       agregarCarrito(itemCart)
     }
@@ -38,10 +41,11 @@ const ItemDetail = ({name, img, detail, stock, prices, id}) => {
           <h2>{name}</h2>
           <h4 className='detailPrice'>$ {prices}</h4>
           <p>{detail}</p>
+          
           {
             inCart(id)?
               <>
-                <Link className='comprado' to="/cart"><button className='counterCart'>Ver en el carrito</button></Link>
+                <Link className='comprado' to="/carrito"><button className='counterCart'>Ver en el carrito</button></Link>
               
               </>
               :

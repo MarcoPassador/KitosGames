@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { listgames } from "./stock"
+import { listgames } from "../stock"
 import Item from "./Item"
-import banner from "./img/banner.jpg"
+import banner from "../img/banner.jpg"
 import { useParams } from "react-router-dom"
+
 
 
 
@@ -11,8 +12,6 @@ function ItemlistContainer  () {
     const [itemlist, setItem] = useState ([])
 
     const {gameCat} = useParams()
-
-    console.log(gameCat)
 
     function Cargar(){
 

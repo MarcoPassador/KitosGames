@@ -34,6 +34,12 @@
   width: auto;
 }
 
+.cartIcon{
+  text-decoration: none;
+  color: black;
+
+}
+
 .nave{
   color: white;
   background-color: black;
@@ -74,6 +80,54 @@
   margin: 0;
 }
 
+.cartDiv{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  padding: 30px;
+  
+}
+
+.cartItem{
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+  width: 600px;
+  display: flex;
+  margin: 10px;
+  padding: 5px;
+  box-shadow: 2px 2px 7px 7px rgba(0, 0, 0, 0.2)
+
+}
+
+.cartCont{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cartItem h3{
+  margin-bottom: 140px;
+}
+
+.cartItem img{
+  width: auto;
+  height: 220px;
+  margin: 5px;
+}
+
+.btnCart{
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  border: inherit;
+  background-color: inherit;
+  color: white;
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+}
 
 .listContainer{
   display: flex;
@@ -269,6 +323,13 @@ footer{
   color: white;
   background-color: rgb(231, 36, 44);
   transition: transform 0.5s ease, color 0.5s ease, background-color 0.5s ease;
+}
+
+.btnCart:hover{
+  color: rgb(231, 36, 44);
+  transition: transform 0.5s ease, color 0.5s ease, color 0.5s ease;
+
+
 }
 
 /* .navlink a:hover{

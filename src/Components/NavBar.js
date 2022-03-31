@@ -13,7 +13,6 @@ const NavBar = () =>{
         <>
           <header className='headers'>
             <div className="banner">
-              <img src={logo} alt=""/>
               <h1>KITOS GAMES</h1>
               <CartWidget/>
             </div>
