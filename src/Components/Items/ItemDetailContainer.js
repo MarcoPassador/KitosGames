@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import { listgames } from '../stock.js'
+import { db } from '../../firebase/config'
+import { doc, getDoc } from 'firebase/firestore'
 
 const ItemDetailContainer = () => {
 
@@ -12,28 +14,34 @@ const ItemDetailContainer = () => {
 
     const {gameId} = useParams()
 
-    function GetList (){
+    // function GetList (){
         
-        return new Promise ((resolve, reject)=>{
-            setTimeout(()=>{
-                if(listgames.length === 0){
-                    reject("Error, no se pudieron traer los datos")
-                } else{
-                    resolve(listgames)
-                }
+    //     return new Promise ((resolve, reject)=>{
+    //         setTimeout(()=>{
+    //             if(listgames.length === 0){
+    //                 reject("Error, no se pudieron traer los datos")
+    //             } else{
+    //                 resolve(listgames)
+    //             }
 
-            }, 2000)
+    //         }, 2000)
 
-        })
+    //     })
 
-    }
+    // }
 
     useEffect(()=>{
-        GetList().then((res)=>{
-            setList(res.find((item)=> item.id === Number(gameId)))
+        
+        const gameRef = doc(db, "juegos", gameId)
+
+        getDoc(gameRef)
+        .then((doc)=>{
+            setList({id: doc.id, ...doc.data()})
         })
-        .catch((error)=>console.log(error))
+
     },[])
+
+    console.log(itemdet)
 
     return (
       <div className='containerDetail'>

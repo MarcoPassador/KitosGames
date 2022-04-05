@@ -3,6 +3,8 @@ import { listgames } from "../stock"
 import Item from "./Item"
 import banner from "../img/banner.jpg"
 import { useParams } from "react-router-dom"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import {db} from "../../firebase/config"
 
 
 
@@ -13,30 +15,41 @@ function ItemlistContainer  () {
 
     const {gameCat} = useParams()
 
-    function Cargar(){
+
+
+
+
+
+    // function Cargar(){
 
        
         
-        return new Promise ((resolve, reject) =>{
-            setTimeout(()=>{
-                if(listgames.length===0){
-                    reject("No se pudo traer la lista de juegos")
-                }else{
-                    resolve(listgames)
-                }
-            },2000)
-        })
-    }
+    //     return new Promise ((resolve, reject) =>{
+    //         setTimeout(()=>{
+    //             if(listgames.length===0){
+    //                 reject("No se pudo traer la lista de juegos")
+    //             }else{
+    //                 resolve(listgames)
+    //             }
+    //         },2000)
+    //     })
+    // }
 
     useEffect(()=>{
-        Cargar().then((lista)=>{
-            if(!gameCat){
-                setItem(lista)
-            }else{
-                setItem(lista.filter((games)=> games.category === gameCat))
-            }
-            })
-            .catch((error)=>console.log(error))
+        
+        const gamesRef = collection(db, "juegos")
+        const q = gameCat? query(gamesRef, where("category", "==", gameCat)) : gamesRef
+
+        getDocs(q)
+        .then((resp) => {
+            setItem(resp.docs.map((doc)=>{
+                return {
+                    id: doc.id,
+                    ...doc.data()
+                }
+            }))
+        })
+        
     },[gameCat])
 
 

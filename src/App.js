@@ -31,9 +31,13 @@ function App() {
     setCart(cart.filter((item)=> item.id !== id))
   }
 
+  const limpiarCarrito = () =>{
+    setCart([])
+  }
+
   
   return (
-    <CartContext.Provider value= {{cart,agregarCarrito, inCart, eliminarItem}}>
+    <CartContext.Provider value= {{cart,agregarCarrito, inCart, eliminarItem, limpiarCarrito}}>
       <BrowserRouter>
         <div className="App">
           <NavBar/>
