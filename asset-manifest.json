@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/KitosGames/static/css/main.e75e84d0.css",
+    "main.js": "/KitosGames/static/js/main.4e4563d8.js",
+    "static/js/787.c1938596.chunk.js": "/KitosGames/static/js/787.c1938596.chunk.js",
+    "static/media/banner.jpg": "/KitosGames/static/media/banner.67c73dd6943551494b72.jpg",
+    "index.html": "/KitosGames/index.html",
+    "main.e75e84d0.css.map": "/KitosGames/static/css/main.e75e84d0.css.map",
+    "main.4e4563d8.js.map": "/KitosGames/static/js/main.4e4563d8.js.map",
+    "787.c1938596.chunk.js.map": "/KitosGames/static/js/787.c1938596.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e75e84d0.css",
+    "static/js/main.4e4563d8.js"
+  ]
+}
