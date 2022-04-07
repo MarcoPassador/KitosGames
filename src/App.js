@@ -9,35 +9,35 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { CartContext } from './Components/Context/CartContext';
-import { useState } from 'react';
+import {  CartProvider } from './Components/Context/CartContext';
 import Cart from './Components/Cart';
+import Checkout from './Components/Checkout/Checkout';
 
 function App() {
 
   // CartContext
 
-  const [cart, setCart] = useState([])
+  // const [cart, setCart] = useState([])
 
-  const agregarCarrito = (item) => {
-    setCart( [...cart, item] )
-  }
+  // const agregarCarrito = (item) => {
+  //   setCart( [...cart, item] )
+  // }
 
-  const inCart = (id) =>{
-    return cart.some((prod) => prod.id === id)
-  }  
+  // const inCart = (id) =>{
+  //   return cart.some((prod) => prod.id === id)
+  // }  
 
-  const eliminarItem = (id) =>{
-    setCart(cart.filter((item)=> item.id !== id))
-  }
+  // const eliminarItem = (id) =>{
+  //   setCart(cart.filter((item)=> item.id !== id))
+  // }
 
-  const limpiarCarrito = () =>{
-    setCart([])
-  }
+  // const limpiarCarrito = () =>{
+  //   setCart([])
+  // }
 
   
   return (
-    <CartContext.Provider value= {{cart,agregarCarrito, inCart, eliminarItem, limpiarCarrito}}>
+    <CartProvider>
       <BrowserRouter>
         <div className="App">
           <NavBar/>
@@ -46,6 +46,7 @@ function App() {
             <Route path='/carrito' element={<Cart/>}/>
             <Route path='/juegos/:gameCat' element={<ItemlistContainer/>}/>
             <Route path='detalle/:gameId' element={<ItemDetailContainer/>}/>
+            <Route path='/checkout' element={<Checkout/>}/>
 
             <Route path='*' element={<Navigate to="/"/>}/>
           </Routes>
@@ -58,7 +59,7 @@ function App() {
 
         </div>
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

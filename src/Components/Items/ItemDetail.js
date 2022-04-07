@@ -9,29 +9,8 @@ const ItemDetail = ({name, img, detail, stock, prices, id}) => {
 
   const [count, setCount] = useState(1);
 
-  const {agregarCarrito, inCart} = useContext(CartContext)
-
-  const agregar = () =>{
-    if (count === 0) return
-
-    if (!inCart(id)){
-      const itemCart = {
-        name,
-        id,
-        img,
-        prices,
-        count,
-        subtot: prices * count,
-      
-      }
-      
-      agregarCarrito(itemCart)
-    }
-
-  }
+  const { inCart} = useContext(CartContext)
     
-
-
 
   return (
     <div className='detailPage'>
@@ -51,7 +30,7 @@ const ItemDetail = ({name, img, detail, stock, prices, id}) => {
               :
               <>
                 <div className='counterDetail'>
-                  <ItemCounter max={stock} count={count} setCount={setCount} agregar={agregar}/>
+                  <ItemCounter max={stock} count={count} setCount={setCount} name={name} prices={prices} img ={img} id={id}/>
                 </div>
               </>
           }
