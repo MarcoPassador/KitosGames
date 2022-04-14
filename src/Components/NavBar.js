@@ -1,6 +1,7 @@
 
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget.js"
+import logo from "./img/logo.png"
 
 
 const NavBar = () =>{
@@ -11,7 +12,8 @@ const NavBar = () =>{
         <>
           <header className='headers'>
             <div className="banner">
-              <h1>KITOS GAMES</h1>
+              {/* <h1>KITOS GAMES</h1> */}
+              <img src={logo} alt="banner"/>
               <CartWidget/>
             </div>
             <nav className='nave'>

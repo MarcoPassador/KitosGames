@@ -8,6 +8,10 @@
   padding: 0;
 }
 
+a{
+  text-decoration: none;
+}
+
 
 
 .headers{
@@ -337,6 +341,14 @@
   padding: 77px 55px 33px 55px;
   margin: 25px;
   box-shadow: 0 7px 4px 7px rgba(0,0,0,.2);
+}
+
+.divFormB{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
 }
 
 .formCheck{
