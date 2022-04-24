@@ -91,7 +91,7 @@ const generarOrden = async () =>{
         {
             cart.length === 0 ?
             <>
-                <div classname="divFormB">
+                <div className="divFormA">
                     <h2>Su carrito de compras esta vacio</h2>
                     <Link to="/"><button  className='counterCart'>Volver a comprar</button></Link>
                 </div>
@@ -115,7 +115,7 @@ const generarOrden = async () =>{
                         </div>
                             <input type="submit" value="Finalizar" className="btnCheck" id="btnCheck"/>
                     </form>
-                    <div>
+                    <div className="divResu">
                         <h3>Su resumen de compra:</h3>
                         {cart.map((el)=>
                             <>

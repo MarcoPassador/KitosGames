@@ -1,40 +1,20 @@
 
 import './App.css';
 import ItemlistContainer from './Components/Items/ItemlistContainer';
-import NavBar from './Components/NavBar';
-import ItemDetailContainer from './Components//Items/ItemDetailContainer';
+import NavBar from './Components/NavBar/NavBar.js';
+import ItemDetailContainer from './Components/Items/ItemDetailContainer';
 import {
   BrowserRouter,
   Routes,
   Route,
   Navigate,
 } from "react-router-dom";
-import {  CartProvider } from './Components/Context/CartContext';
-import Cart from './Components/Cart';
+import {  CartProvider } from './Components/Context/CartContext.js';
+import Cart from './Components/Cart/Cart.js';
 import Checkout from './Components/Checkout/Checkout';
+import Footer from './Components/Footer/Footer';
 
 function App() {
-
-  // CartContext
-
-  // const [cart, setCart] = useState([])
-
-  // const agregarCarrito = (item) => {
-  //   setCart( [...cart, item] )
-  // }
-
-  // const inCart = (id) =>{
-  //   return cart.some((prod) => prod.id === id)
-  // }  
-
-  // const eliminarItem = (id) =>{
-  //   setCart(cart.filter((item)=> item.id !== id))
-  // }
-
-  // const limpiarCarrito = () =>{
-  //   setCart([])
-  // }
-
   
   return (
     <CartProvider>
@@ -51,12 +31,8 @@ function App() {
             <Route path='*' element={<Navigate to="/"/>}/>
           </Routes>
         
+          <Footer/>
           
-          <footer>
-
-          </footer>
-          
-
         </div>
       </BrowserRouter>
     </CartProvider>

@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
-import CartWidget from "./CartWidget.js"
-import logo from "./img/logo.png"
+import CartWidget from "../Cart/CartWidget"
+import logo from "../img/logo.png"
 
 
 const NavBar = () =>{
