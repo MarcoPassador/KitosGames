@@ -12,3 +12,5 @@ Para instalar el proyecto
 ### `npm start`
 
 El Proyecto corre  en  **Localhost:3000/**
+
+ ![image](/public/compra.gif)
